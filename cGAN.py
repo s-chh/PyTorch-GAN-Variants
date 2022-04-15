@@ -7,7 +7,6 @@ from torchvision import transforms
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import pdb
 
 # Arguments
 BATCH_SIZE = 256
@@ -32,31 +31,21 @@ else:
     print("Incorrect dataset")
     exit(0)
 
-# Directories for storing model and output samples
+# Directories for storing data, model and output samples
+db_path = os.path.join('./data', DB)
+if not os.path.exists(db_path):
+    os.makedirs(db_path)
 model_path = os.path.join('./model', DB)
 if not os.path.exists(model_path):
     os.makedirs(model_path)
 samples_path = os.path.join('./samples', DB)
 if not os.path.exists(samples_path):
     os.makedirs(samples_path)
-db_path = os.path.join('./data', DB)
-if not os.path.exists(samples_path):
-    os.makedirs(samples_path)
 
-# Method for storing generated images
-def generate_imgs(z, fixed_label, epoch=0):
-    gen.eval()
-    fake_imgs = gen(z, fixed_label)
-    fake_imgs_ = vutils.make_grid(fake_imgs, normalize=True, nrow=IMGS_TO_DISPLAY_PER_CLASS)
-    vutils.save_image(fake_imgs_, os.path.join(samples_path, 'sample_' + str(epoch) + '.png'))
-
-
-# Data loaders
-mean = np.array([0.5])
-std = np.array([0.5])
+# Data loader
 transform = transforms.Compose([transforms.Resize([32, 32]),
                                 transforms.ToTensor(),
-                                transforms.Normalize(mean, std)])
+                                transforms.Normalize([0.5], [0.5])])
 
 if DB == 'MNIST':
     dataset = datasets.MNIST(db_path, train=True, download=True, transform=transform)
@@ -69,9 +58,16 @@ elif DB == 'SVHN':
 elif DB == 'CIFAR10':
     dataset = datasets.CIFAR10(db_path, train=True, download=True, transform=transform)
 
-data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=8,
+data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4,
                                           drop_last=True)
 
+# Method for storing generated images
+def generate_imgs(z, fixed_label, epoch=0):
+    gen.eval()
+    fake_imgs = gen(z, fixed_label)
+    fake_imgs = (fake_imgs + 1) / 2
+    fake_imgs_ = vutils.make_grid(fake_imgs, normalize=False, nrow=IMGS_TO_DISPLAY_PER_CLASS)
+    vutils.save_image(fake_imgs_, os.path.join(samples_path, 'sample_' + str(epoch) + '.png'))
 
 # Networks
 def conv_block(c_in, c_out, k_size=4, stride=2, pad=1, use_bn=True, transpose=False):
@@ -94,6 +90,14 @@ class Generator(nn.Module):
         self.tconv3 = conv_block(conv_dim * 2, conv_dim, transpose=True)
         self.tconv4 = conv_block(conv_dim, channels, transpose=True, use_bn=False)
 
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d) or isinstance(m, nn.ConvTranspose2d):
+                nn.init.normal_(m.weight, 0.0, 0.02)
+
+            if isinstance(m, nn.BatchNorm2d):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+
     def forward(self, x, label):
         x = x.reshape([x.shape[0], -1, 1, 1])
         label_embed = self.label_embedding(label)
@@ -115,6 +119,14 @@ class Discriminator(nn.Module):
         self.conv2 = conv_block(conv_dim, conv_dim * 2)
         self.conv3 = conv_block(conv_dim * 2, conv_dim * 4)
         self.conv4 = conv_block(conv_dim * 4, 1, k_size=4, stride=1, pad=0, use_bn=False)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.normal_(m.weight, 0.0, 0.02)
+
+            if isinstance(m, nn.BatchNorm2d):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
 
     def forward(self, x, label):
         alpha = 0.2
@@ -150,7 +162,8 @@ d_opt = optim.Adam(dis.parameters(), lr=0.0002, betas=(0.5, 0.999), weight_decay
 loss_fn = nn.BCELoss()
 
 # Fix images for viz
-fixed_z = torch.randn(IMGS_TO_DISPLAY_PER_CLASS*NUM_CLASSES, Z_DIM)
+fixed_z = torch.randn(1, IMGS_TO_DISPLAY_PER_CLASS, Z_DIM)
+fixed_z = torch.repeat_interleave(fixed_z, NUM_CLASSES, 0).reshape(-1, Z_DIM)
 fixed_label = torch.arange(0, NUM_CLASSES)
 fixed_label = torch.repeat_interleave(fixed_label, IMGS_TO_DISPLAY_PER_CLASS)
 
@@ -219,5 +232,4 @@ for epoch in range(EPOCHS):
         torch.save(dis.state_dict(), os.path.join(model_path, 'dis.pkl'))
 
         generate_imgs(fixed_z, fixed_label, epoch=epoch + 1)
-
 generate_imgs(fixed_z, fixed_label)
