@@ -18,3 +18,5 @@ For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS 
 <img src="/Results/FashionMNIST.png" width="700"></img>
 #### CIFAR10
 <img src="/Results/CIFAR10.png" width="700"></img>
+<br>
+Same noise is applied to each column
