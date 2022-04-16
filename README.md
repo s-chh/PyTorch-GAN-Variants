@@ -7,7 +7,8 @@ Change the DB variable to change the dataset.
 For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS to 0.
 
 
-## Generated Samples
+## Generated Samples<br>
+Same noise is applied to each column<br>
 #### MNIST
 <img src="/Results/MNIST.png" width="700" ></img>
 #### SVHN
@@ -18,5 +19,5 @@ For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS 
 <img src="/Results/FashionMNIST.png" width="700"></img>
 #### CIFAR10
 <img src="/Results/CIFAR10.png" width="700"></img>
-<br><br><br><br>
-Same noise is applied to each column
+
+
