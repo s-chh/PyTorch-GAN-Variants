@@ -17,7 +17,3 @@ Same noise is applied to each column<br>
 <img src="/Results/USPS.png" width="700"></img>
 #### FashionMNIST
 <img src="/Results/FashionMNIST.png" width="700"></img>
-#### CIFAR10
-<img src="/Results/CIFAR10.png" width="700"></img>
-
-
