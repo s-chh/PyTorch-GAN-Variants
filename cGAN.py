@@ -16,17 +16,17 @@ NUM_CLASSES = 10
 IMGS_TO_DISPLAY_PER_CLASS = 20
 LOAD_MODEL = False
 
-DB = 'MNIST'  # SVHN | CIFAR10 | MNIST | FashionMNIST | USPS
+DB = 'MNIST'  # SVHN | MNIST | FashionMNIST | USPS
 
 if DB == 'MNIST' or DB == 'FashionMNIST':
     CHANNELS = 1
     EPOCHS = 50
 elif DB == 'USPS':
     CHANNELS = 1
-    EPOCHS = 200
-elif DB == 'SVHN' or DB == 'CIFAR10':
+    EPOCHS = 100
+elif DB == 'SVHN':
     CHANNELS = 3
-    EPOCHS = 200
+    EPOCHS = 100
 else:
     print("Incorrect dataset")
     exit(0)
@@ -55,8 +55,9 @@ elif DB == 'USPS':
     dataset = datasets.USPS(db_path, train=True, download=True, transform=transform)
 elif DB == 'SVHN':
     dataset = datasets.SVHN(db_path, split='train', download=True, transform=transform)
-elif DB == 'CIFAR10':
-    dataset = datasets.CIFAR10(db_path, train=True, download=True, transform=transform)
+else:
+    print("Incorrect DB")
+    exit(0)
 
 data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4,
                                           drop_last=True)
