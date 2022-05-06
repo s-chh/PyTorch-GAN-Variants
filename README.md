@@ -1,5 +1,5 @@
 # Pytorch-cGAN-conditional-GAN
-Pytorch implementation of conditional GAN (cGAN) using DCGAN architecture for generating 32x32 images of SVHN, MNIST, FashionMNIST, and USPS datasets.
+Pytorch implementation of conditional GAN (cGAN) using DCGAN architecture for generating 32x32 images of MNIST, SVHN, FashionMNIST, and USPS datasets.
 
 <br>
 Change the DB variable to change the dataset.
