@@ -13,7 +13,7 @@ Same noise is applied to each column<br>
 <img src="/Results/MNIST.png" width="700" ></img>
 #### SVHN
 <img src="/Results/SVHN.png" width="700"></img>
-#### USPS
-<img src="/Results/USPS.png" width="700"></img>
 #### FashionMNIST
 <img src="/Results/FashionMNIST.png" width="700"></img>
+#### USPS
+<img src="/Results/USPS.png" width="700"></img>
