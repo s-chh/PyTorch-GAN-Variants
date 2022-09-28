@@ -8,7 +8,6 @@ For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS 
 
 
 ## Generated Samples<br>
-Same noise is applied to each column<br>
 #### MNIST
 <img src="/Results/MNIST.png" width="700" ></img>
 #### SVHN
