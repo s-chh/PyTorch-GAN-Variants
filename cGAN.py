@@ -33,14 +33,11 @@ else:
 
 # Directories for storing data, model and output samples
 db_path = os.path.join('./data', DB)
-if not os.path.exists(db_path):
-    os.makedirs(db_path)
+os.makedirs(db_path, exist_ok=True)
 model_path = os.path.join('./model', DB)
-if not os.path.exists(model_path):
-    os.makedirs(model_path)
+os.makedirs(model_path, exist_ok=True)
 samples_path = os.path.join('./samples', DB)
-if not os.path.exists(samples_path):
-    os.makedirs(samples_path)
+os.makedirs(samples_path, exist_ok=True)
 
 # Data loader
 transform = transforms.Compose([transforms.Resize([32, 32]),
@@ -59,8 +56,12 @@ else:
     print("Incorrect DB")
     exit(0)
 
-data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=4,
-                                          drop_last=True)
+data_loader = torch.utils.data.DataLoader(dataset=dataset, 
+                                        batch_size=BATCH_SIZE, 
+                                        shuffle=True, 
+                                        num_workers=4,
+                                        drop_last=True)
+
 
 # Method for storing generated images
 def generate_imgs(z, fixed_label, epoch=0):
@@ -69,6 +70,7 @@ def generate_imgs(z, fixed_label, epoch=0):
     fake_imgs = (fake_imgs + 1) / 2
     fake_imgs_ = vutils.make_grid(fake_imgs, normalize=False, nrow=IMGS_TO_DISPLAY_PER_CLASS)
     vutils.save_image(fake_imgs_, os.path.join(samples_path, 'sample_' + str(epoch) + '.png'))
+
 
 # Networks
 def conv_block(c_in, c_out, k_size=4, stride=2, pad=1, use_bn=True, transpose=False):
@@ -163,8 +165,7 @@ d_opt = optim.Adam(dis.parameters(), lr=0.0002, betas=(0.5, 0.999), weight_decay
 loss_fn = nn.BCELoss()
 
 # Fix images for viz
-fixed_z = torch.randn(1, IMGS_TO_DISPLAY_PER_CLASS, Z_DIM)
-fixed_z = torch.repeat_interleave(fixed_z, NUM_CLASSES, 0).reshape(-1, Z_DIM)
+fixed_z = torch.randn(IMGS_TO_DISPLAY_PER_CLASS*NUM_CLASSES, Z_DIM)
 fixed_label = torch.arange(0, NUM_CLASSES)
 fixed_label = torch.repeat_interleave(fixed_label, IMGS_TO_DISPLAY_PER_CLASS)
 
