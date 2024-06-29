@@ -1,6 +1,6 @@
 # Pytorch-cGAN-conditional-GAN
 Pytorch implementation of conditional generative adversarial network (cGAN) using DCGAN architecture for generating 32x32 images of MNIST, SVHN, FashionMNIST, and USPS datasets.
-
+<br>
 
 ## Run commands (also available in <a href="scripts.sh">scripts.sh</a>): <br>
 
@@ -27,9 +27,7 @@ Pytorch implementation of conditional generative adversarial network (cGAN) usin
   </tr>
 </table>
 
-
-
-
+<br>
 
 ## Generated Samples<br>
 #### MNIST
