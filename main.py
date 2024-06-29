@@ -33,7 +33,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ConditionalGAN')
 
     # Data arguments
-    parser.add_argument('--dataset', type=str.lower, default='mnist', choices=['mnist', 'fmnist', 'svhn', 'cifar10'], help='dataset to use')
+    parser.add_argument('--dataset', type=str.lower, default='mnist', choices=['mnist', 'fashionmnist', 'svhn', 'usps'], help='dataset to use')
     parser.add_argument("--n_channels", type=int, default=1, help='number of channels')
     parser.add_argument('--data_path', type=str, default='./data/', help='path to store downloaded dataset')
     parser.add_argument('--n_classes', type=int, default=10, help='number of classes in the dataset')

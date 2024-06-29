@@ -20,7 +20,7 @@ def get_loader(args):
     if args.dataset == 'mnist':
         train = datasets.MNIST(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
 
-    elif args.dataset == 'fmnist':
+    elif args.dataset == 'fashionmnist':
         train = datasets.FashionMNIST(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
 
     elif args.dataset == 'svhn':
