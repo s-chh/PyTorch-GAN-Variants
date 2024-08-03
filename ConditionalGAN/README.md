@@ -11,7 +11,7 @@ Pytorch implementation of conditional generative adversarial network (cGAN) usin
   </tr>
   <tr>
     <td>MNIST</td>
-    <td>python python main.py --dataset mnist --epochs 10</td>
+    <td>python main.py --dataset mnist --epochs 10</td>
   </tr>
   <tr>
     <td>Fashion MNIST</td>
