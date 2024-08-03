@@ -31,10 +31,10 @@ Pytorch implementation of conditional generative adversarial network (cGAN) usin
 
 ## Generated Samples<br>
 #### MNIST
-<img src="/ConditionalGAN/Results/MNIST.png" width="700" ></img>
+<img src="./Results/MNIST.png" width="700" ></img>
 #### SVHN
-<img src="/ConditionalGAN/Results/SVHN.png" width="700"></img>
+<img src="./Results/SVHN.png" width="700"></img>
 #### FashionMNIST
-<img src="/ConditionalGAN/Results/FashionMNIST.png" width="700"></img>
+<img src="./Results/FashionMNIST.png" width="700"></img>
 #### USPS
-<img src="/ConditionalGAN/Results/USPS.png" width="700"></img>
+<img src="./Results/USPS.png" width="700"></img>
