@@ -8,9 +8,9 @@ from utils import print_args
 
 def main(args):
     # Create required directories if they don't exist
+    os.makedirs(args.data_path,   exist_ok=True)
     os.makedirs(args.model_path,  exist_ok=True)
     os.makedirs(args.output_path, exist_ok=True)
-    os.makedirs(args.data_path,   exist_ok=True)
 
     solver = Solver(args)
     solver.generate_sample_images()         # Generate Sample/GT Images
@@ -20,6 +20,7 @@ def main(args):
 
 # Update arguments
 def update_args(args):
+    args.data_path   = os.path.join(args.data_path, args.dataset)
     args.model_path  = os.path.join(args.model_path, args.dataset)
     args.output_path = os.path.join(args.output_path, args.dataset)
     
@@ -32,7 +33,7 @@ def update_args(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='ConditionalGAN')
+    parser = argparse.ArgumentParser(description='ConditionalGAN-32x32')
 
     # Data arguments
     parser.add_argument('--dataset', type=str.lower, default='mnist', choices=['mnist', 'fashionmnist', 'svhn', 'usps', 'cifar10'], help='dataset to use')
@@ -41,7 +42,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_classes', type=int, default=10, help='number of classes in the dataset')
 
     # Training Arguments
-    parser.add_argument('--epochs', type=int, default=25, help='number of training epochs')
+    parser.add_argument('--epochs', type=int, default=100, help='number of training epochs')
     parser.add_argument('--batch_size', type=int, default=256, help='batch size')
     parser.add_argument('--lr', type=float, default=2e-4, help='learning rate')
     parser.add_argument('--z_dim', type=int, default=10, help='sample noise dimensions')
@@ -55,7 +56,7 @@ if __name__ == '__main__':
 
     # Image generation arguments
     parser.add_argument('--n_images_to_display_per_class', type=int, default=20, help='number of images to display per class')
-    parser.add_argument('--output_path', type=str, default='./outputs', help='path to store generated images')
+    parser.add_argument('--output_path', type=str, default='./outputs', help='path to store training graphs and tsne plots')
 
     start_time = datetime.datetime.now()
     print("Started at " + str(start_time.strftime('%Y-%m-%d %H:%M:%S')))

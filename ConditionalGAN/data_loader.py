@@ -4,10 +4,10 @@ from torchvision import datasets, transforms
 
 
 def get_loader(args):
-    train_transforms = []
-    if args.dataset == 'fashionmnist' or args.dataset == 'cifar10':
+    train_transforms     = []
+    if args.dataset      in ['fashionmnist', 'cifar10']:
         train_transforms += [transforms.RandomHorizontalFlip()]
-    if args.n_channels == 1:
+    if args.n_channels   == 1:
         train_transforms += [transforms.Grayscale(1)]
 
     train_transforms += [transforms.Resize([32, 32]),
@@ -17,16 +17,16 @@ def get_loader(args):
 
     train_transforms = transforms.Compose(train_transforms)
 
-    if args.dataset == 'mnist':
-        train = datasets.MNIST(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
+    if args.dataset   == 'mnist':
+        train = datasets.MNIST(args.data_path, train=True, download=True, transform=train_transforms)
     elif args.dataset == 'fashionmnist':
-        train = datasets.FashionMNIST(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
+        train = datasets.FashionMNIST(args.data_path, train=True, download=True, transform=train_transforms)
     elif args.dataset == 'svhn':
-        train = datasets.SVHN(os.path.join(args.data_path, args.dataset), split='train', download=True, transform=train_transforms)
+        train = datasets.SVHN(args.data_path, split='train', download=True, transform=train_transforms)
     elif args.dataset == 'usps':
-        train = datasets.USPS(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
+        train = datasets.USPS(args.data_path, train=True, download=True, transform=train_transforms)
     elif args.dataset == 'cifar10':
-        train = datasets.CIFAR10(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
+        train = datasets.CIFAR10(args.data_path, train=True, download=True, transform=train_transforms)
     else:
         print("Unknown dataset")
         exit(0)

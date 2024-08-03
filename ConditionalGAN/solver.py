@@ -15,7 +15,7 @@ class Solver(object):
 		self.train_loader = get_loader(args)
 
 		# Define Generator and Discriminator
-		self.gen = Generator(z_dim=self.args.z_dim, n_classes=self.args.n_classes, label_embed_dim=self.args.label_embed_dim, n_channels=self.args.n_channels)
+		self.gen = Generator(z_dim=self.args.z_dim, n_classes=self.args.n_classes, y_embed_dim=self.args.label_embed_dim, n_channels=self.args.n_channels)
 		self.dis = Discriminator(n_classes=self.args.n_classes, n_channels=self.args.n_channels)
 
 		# Display Generator and Discriminators
@@ -57,7 +57,7 @@ class Solver(object):
 
 	def generate_sample_images(self):
 		x = iter(self.train_loader).next()[0]
-		x  = (x + 1) / 2
+		x = (x + 1) / 2
 		x = vutils.make_grid(x, normalize=False, nrow=int(x.shape[0]**0.5))
 		vutils.save_image(x, os.path.join(self.args.output_path, 'x_original.png'))
 
