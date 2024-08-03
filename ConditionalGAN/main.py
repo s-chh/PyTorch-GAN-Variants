@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     # Image generation arguments
     parser.add_argument('--n_images_to_display_per_class', type=int, default=20, help='number of images to display per class')
-    parser.add_argument('--output_path', type=str, default='./outputs', help='path to store training graphs and tsne plots')
+    parser.add_argument('--output_path', type=str, default='./outputs', help='path to store generated images')
 
     start_time = datetime.datetime.now()
     print("Started at " + str(start_time.strftime('%Y-%m-%d %H:%M:%S')))
