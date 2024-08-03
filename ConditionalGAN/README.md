@@ -11,23 +11,25 @@ Pytorch implementation of conditional generative adversarial network (cGAN) usin
   </tr>
   <tr>
     <td>MNIST</td>
-    <td>python python main.py --dataset mnist --epochs 10</td>
+    <td>python main.py --dataset mnist        --epochs 25  --n_channels 1</td>
   </tr>
   <tr>
     <td>Fashion MNIST</td>
-    <td>python main.py --dataset fashionmnist --epochs 50</td>
+    <td>python main.py --dataset fashionmnist --epochs 50  --n_channels 1</td>
   </tr>
   <tr>
     <td>SVHN</td>
-    <td>python main.py --dataset svhn --epochs 100 --n_channels 3</td>
+    <td>python main.py --dataset svhn         --epochs 100 --n_channels 3</td>
   </tr>
   <tr>
     <td>USPS</td>
-    <td>python main.py --dataset usps --epochs 100</td>
+    <td>python main.py --dataset usps       --epochs 100 --n_channels 1</td>
   </tr>
 </table>
 
 <br>
+
+
 
 ## Generated Samples<br>
 #### MNIST
