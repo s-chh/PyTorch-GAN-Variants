@@ -6,7 +6,7 @@ from utils import init_weights
 
 def tconv_block(c_in, c_out, k_size=4, stride=2, pad=1, use_bn=True):
     module = []
-    module.append(nn.ConvTranspose2d(c_in, c_out, k_size, stride, pad, bias=not use_bn))
+    module.append(nn.ConvTranspose2d(c_in, c_out, kernel_size=k_size, stride=stride, padding=pad, bias=not use_bn))
     if use_bn:
         module.append(nn.BatchNorm2d(c_out))
     return nn.Sequential(*module)
@@ -14,7 +14,7 @@ def tconv_block(c_in, c_out, k_size=4, stride=2, pad=1, use_bn=True):
 
 def conv_block(c_in, c_out, k_size=4, stride=2, pad=1, use_bn=True):
     module = []
-    module.append(nn.Conv2d(c_in, c_out, k_size, stride, pad, bias=not use_bn))
+    module.append(nn.Conv2d(c_in, c_out, kernel_size=k_size, stride=stride, padding=pad, bias=not use_bn))
     if use_bn:
         module.append(nn.BatchNorm2d(c_out))
     return nn.Sequential(*module)

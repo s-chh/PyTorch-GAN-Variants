@@ -21,6 +21,7 @@ def main(args):
 def update_args(args):
     args.model_path  = os.path.join(args.model_path, args.dataset)
     args.output_path = os.path.join(args.output_path, args.dataset)
+    
     args.is_cuda = torch.cuda.is_available()
     if args.is_cuda:
         print("Using GPU")
@@ -49,7 +50,7 @@ if __name__ == '__main__':
 
     # Model arguments
     parser.add_argument('--model_path', type=str, default='./model', help='path to store trained model')
-    parser.add_argument("--load_model", type=bool, default=True, help="load saved model")
+    parser.add_argument("--load_model", type=bool, default=False, help="load saved model")
 
     # Image generation arguments
     parser.add_argument('--n_images_to_display_per_class', type=int, default=20, help='number of images to display per class')
