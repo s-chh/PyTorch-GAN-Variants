@@ -23,7 +23,7 @@ Pytorch implementation of conditional generative adversarial network (cGAN) usin
   </tr>
   <tr>
     <td>USPS</td>
-    <td>python main.py --dataset usps --epochs 50</td>
+    <td>python main.py --dataset usps --epochs 100</td>
   </tr>
 </table>
 
