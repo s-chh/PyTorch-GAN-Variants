@@ -13,8 +13,9 @@ def main(args):
     os.makedirs(args.data_path,   exist_ok=True)
 
     solver = Solver(args)
-    solver.train()               # Training function
-    solver.generate_images()     # Generate Images
+    solver.generate_sample_images()         # Generate Sample/GT Images
+    solver.train()                          # Training function
+    solver.generate_images()                # Generate Images
 
 
 # Update arguments
@@ -34,7 +35,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ConditionalGAN')
 
     # Data arguments
-    parser.add_argument('--dataset', type=str.lower, default='mnist', choices=['mnist', 'fashionmnist', 'svhn', 'usps'], help='dataset to use')
+    parser.add_argument('--dataset', type=str.lower, default='mnist', choices=['mnist', 'fashionmnist', 'svhn', 'usps', 'cifar10'], help='dataset to use')
     parser.add_argument("--n_channels", type=int, default=1, help='number of channels')
     parser.add_argument('--data_path', type=str, default='./data/', help='path to store downloaded dataset')
     parser.add_argument('--n_classes', type=int, default=10, help='number of classes in the dataset')

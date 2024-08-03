@@ -55,6 +55,12 @@ class Solver(object):
 		x_fake_ = vutils.make_grid(x_fake, normalize=False, nrow=self.args.n_images_to_display_per_class)
 		vutils.save_image(x_fake_, os.path.join(self.args.output_path, name))
 
+	def generate_sample_images(self):
+		x = iter(self.train_loader).next()[0]
+		x  = (x + 1) / 2
+		x = vutils.make_grid(x, normalize=False, nrow=int(x.shape[0]**0.5))
+		vutils.save_image(x, os.path.join(self.args.output_path, 'x_original.png'))
+
 	def train(self):
 		iters_per_epoch = len(self.train_loader)
 

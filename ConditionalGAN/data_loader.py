@@ -5,13 +5,13 @@ from torchvision import datasets, transforms
 
 def get_loader(args):
     train_transforms = []
-    if args.dataset == 'fashionmnist':
+    if args.dataset == 'fashionmnist' or args.dataset == 'cifar10':
         train_transforms += [transforms.RandomHorizontalFlip()]
     if args.n_channels == 1:
         train_transforms += [transforms.Grayscale(1)]
 
     train_transforms += [transforms.Resize([32, 32]),
-                         transforms.RandomCrop(32, padding=2),
+                         transforms.RandomCrop(32, padding=2, padding_mode='edge'),
                          transforms.ToTensor(),
                          transforms.Normalize([0.5], [0.5])]
 
@@ -25,6 +25,8 @@ def get_loader(args):
         train = datasets.SVHN(os.path.join(args.data_path, args.dataset), split='train', download=True, transform=train_transforms)
     elif args.dataset == 'usps':
         train = datasets.USPS(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
+    elif args.dataset == 'cifar10':
+        train = datasets.CIFAR10(os.path.join(args.data_path, args.dataset), train=True, download=True, transform=train_transforms)
     else:
         print("Unknown dataset")
         exit(0)
