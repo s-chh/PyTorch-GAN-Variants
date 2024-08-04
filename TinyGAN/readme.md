@@ -1,8 +1,8 @@
-	# Pytorch-Small GAN
-Pytorch implementation of a small GAN network for MNIST, FashionMNIST and USPS dataset.
+# Pytorch-Tiny GAN
+Pytorch implementation of a small GAN network for MNIST, FashionMNIST, and USPS datasets.
 
 ### Parameters
-Image Size | Generator | Disriminator
+Image Size | Generator | Discriminator
 --- | --- | ---
 28x28 | 6,897 | 3,001
 16x16 | 3,729 | 2,473
