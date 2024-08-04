@@ -27,7 +27,7 @@ Pytorch implementation of DCGAN for generating 32x32 images of SVHN, CIFAR10, MN
   </tr>
   <tr>
     <td>CIFAR10</td>
-    <td>python main.py --dataset cifar10       --epochs 200 --n_channels 1</td>
+    <td>python main.py --dataset cifar10       --epochs 200 --n_channels 3</td>
   </tr>
 </table>
 
