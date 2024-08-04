@@ -47,7 +47,7 @@ if __name__ == '__main__':
     parser.add_argument('--lr', type=float, default=2e-4, help='learning rate')
     parser.add_argument('--z_dim', type=int, default=10, help='sample noise dimensions')
     parser.add_argument('--label_embed_dim', type=int, default=5, help='label embedding dimension')
-    parser.add_argument('--training_loss', type=str, default='mse', choices=['bce', 'mse'], help='Training loss function to use')
+    parser.add_argument('--training_loss', type=str, default='bce', choices=['bce', 'mse'], help='Training loss function to use')
     parser.add_argument('--n_workers', type=int, default=4, help='number of workers for data loaders')
 
     # Model arguments
