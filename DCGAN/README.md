@@ -5,9 +5,30 @@ Pytorch implementation of [DCGAN](https://arxiv.org/abs/1511.06434) for generati
 To download LSUN dataset follow the steps at [https://github.com/fyu/lsun](https://github.com/fyu/lsun)
 
 <br>
-Change the DB variable to change the dataset.
+## Run commands (also available in <a href="./scripts.sh">scripts.sh</a>): <br>
 
-For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS to 0.
+<table>
+  <tr>
+    <th>Dataset</th>
+    <th>Run command</th>
+  </tr>
+  <tr>
+    <td>MNIST</td>
+    <td>python main.py --dataset mnist --n_channels 1 --epochs 25</td>
+  </tr>
+  <tr>
+    <td>CelebA</td>
+    <td>python main.py --dataset celeba</td>
+  </tr>
+  <tr>
+    <td>LSUN Church</td>
+    <td>python main.py --dataset lsun_church</td>
+  </tr>
+  <tr>
+    <td>LSUN Bedroom</td>
+    <td>python main.py --dataset lsun_bedroom</td>
+  </tr>
+</table>
 
 
 ## Generated Samples
