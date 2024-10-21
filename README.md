@@ -1,2 +1,2 @@
-# PyTorch-GAN-Variants
-PyTorch implementations of various Generative Adversarial Networks (GAN). Each folder contains the implementation of that GAN.
+# PyTorch-GANs
+PyTorch implementations of various types of Generative Adversarial Networks (GAN). Each folder contains its own implementation.
