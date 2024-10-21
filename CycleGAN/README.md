@@ -4,7 +4,7 @@ Unofficial Pytorch implementation of [CycleGAN](https://arxiv.org/abs/1703.10593
 
 <br>
 
-Change the DB variable to change the dataset.
+Change the DS variables to change the dataset.
 For using the saved model to generate images, set LOAD_MODEL to True and EPOCHS to 0.
 ## Generated Samples
 ### MNIST &#10231; SVHN
