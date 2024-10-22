@@ -4,9 +4,16 @@ Unofficial Pytorch implementation of StarGAN for generating Digits.
 <br>
 
 ## Run command
+```
 python main.py --datasets mnist cmnist emnist usps
+```
+Add/Remove datasets to be included as part of the model. <br> <br>
 
-Add datasets to be included as part of the model.
+MNIST Variations: <br>
+mnist: Regular MNIST <br>
+cmnist: Colored MNIST <br>
+emnist: Edge MNIST <br>
+mnistm: MNISTM using BSR_bsds500 backgrounds <br>
 
 <br>
 
