@@ -20,5 +20,5 @@ mnistm: MNISTM using BSR_bsds500 backgrounds <br>
 ## Generated Samples
 | MNISTs | Digits |
 | --- | --- |
-<img src="./Results/MNISTs.png" width="500"></img> | <img src="./Results/Digits.png" width="550"></img>
+<img src="./Results/MNISTs.png" width="500"></img> | <img src="./Results/Digits.png" width="600"></img>
 
