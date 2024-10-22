@@ -1,5 +1,5 @@
 # Pytorch-StarGAN-Digits
-Unofficial Pytorch implementation of StarGAN for generating Digits.
+Pytorch implementation of StarGAN for generating multiple styles of digits.
 
 <br>
 
