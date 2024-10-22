@@ -4,7 +4,7 @@ Unofficial Pytorch implementation of StarGAN for generating Digit-5 datasets (MN
 ## Generated Samples
 MNISTs | Digits 
 --- | --- 
-<img src="./Results/MNISTs.png" width="500"></img> | <img src="./Results/Digits.png" width="500"></img>
+<img src="./Results/MNISTs.png" width="500"></img> | <img src="./Results/Digits.png" width="550"></img>
 
 
 
