@@ -1,7 +1,7 @@
 # PyTorch-GANs
 PyTorch implementations of various types of Generative Adversarial Networks (GAN). Each folder contains its own implementation.
 
-## Implement Generative Adversarial Networks:
+## Generative Adversarial Networks:
 - <a href="./ConditionalGAN/">ConditionalGAN (cGAN)</a>
 - <a href="./CycleGAN/">CycleGAN</a>
 - DCGAN
@@ -10,7 +10,7 @@ PyTorch implementations of various types of Generative Adversarial Networks (GAN
 - LSGAN
   - <a href="./LSGAN/">LSGAN</a>  Original Architecture for 112 x 112 images
   - <a href="./LSGAN_28/">LSGAN_28</a> Original Architecture for 28 x 28 images
-- <a href="./StarGAN_Digits/">StarGAN</a> for generating 32 x 32 digits
+- <a href="./StarGAN_Digits/">StarGAN_Digits</a> for generating 32 x 32 digits
 - <a href="./TinyGAN/">TinyGAN</a> Small GAN network 
 - <a href="./VanillaGAN/">VanillaGAN</a>
 - <a href="./WassersteinGAN-GP/">WassersteinGAN-GP</a> Wasserstein GAN with Gradient Penalty
