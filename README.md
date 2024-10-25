@@ -11,7 +11,7 @@ PyTorch implementations of various types of Generative Adversarial Networks (GAN
   - <a href="./LSGAN/">LSGAN</a>  Original Architecture for 112 x 112 images
   - <a href="./LSGAN_28/">LSGAN_28</a> Original Architecture for 28 x 28 images
 - <a href="./StarGAN_Digits/">StarGAN_Digits</a> for generating 32 x 32 digits
-- <a href="./TinyGAN/">TinyGAN</a> Small GAN network 
+- <a href="./TinyGAN/">TinyGAN</a> A small GAN network 
 - <a href="./VanillaGAN/">VanillaGAN</a>
 - <a href="./WassersteinGAN-GP/">WassersteinGAN-GP</a> Wasserstein GAN with Gradient Penalty
 - <a href="./WassersteinGAN/">WassersteinGAN</a>
