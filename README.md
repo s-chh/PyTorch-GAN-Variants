@@ -7,9 +7,14 @@ Implement Generative Adversarial Networks (GAN):
 
 - <a href="./ConditionalGAN/">ConditionalGAN (cGAN)</a>
 - <a href="./CycleGAN/">CycleGAN</a>
-- <a href="./DCGAN/">DCGAN</a>
-- <a href="./DCGAN_32/">DCGAN_32 for 32 x 32 images</a>
-- <a href="./LSGAN/">LSGAN</a>
-- <a href="./LSGAN_28/">LSGAN for 28 x 28 images</a>
-- <a href="./StarGAN_Digits/">StarGAN for digits</a>
+- DCGAN
+  - <a href="./DCGAN/">DCGAN</a> Original Architecture for 64 x 64 images
+  - <a href="./DCGAN_32/">DCGAN_32</a> for generating 32 x 32 images
+- LSGAN
+  - <a href="./LSGAN/">LSGAN</a>  Original Architecture for 112 x 112 images
+  - <a href="./LSGAN_28/">LSGAN_28</a> Original Architecture for 28 x 28 images
+- <a href="./StarGAN_Digits/">StarGAN</a> for generating 32 x 32 digits
+- <a href="./TinyGAN/">TinyGAN</a> Small GAN network 
 - <a href="./VanillaGAN/">VanillaGAN</a>
+- <a href="./WassersteinGAN-GP/">WassersteinGAN-GP</a> Wasserstein GAN with Gradient Penalty
+- <a href="./WassersteinGAN/">WassersteinGAN</a>
